@@ -1,15 +1,17 @@
-apiVersion: v1
-kind: ReplicationController
+apiVersion: apps/v1                 
+kind: Deployment
 metadata:
-  name: my-rc
+  name: my-deployment
   labels: 
-    app: cbz-app
+    app: 123-app
 spec:
+  strategy:
+    type: RollingUpdate
   replicas: 3
   template:
     metadata: 
       labels:
-        app: cbz-app
+        app: 123-app
     spec:
       containers:
         - name: my-c
@@ -17,16 +19,18 @@ spec:
           ports:
             - containerPort: 80
   selector:
-    app: cbz-app
-
+    # matchLabels:
+    #   app: rs-app
+    matchExpressions:
+      - {key: app, operator: In, values: [cbz-app, 123-app]}
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-svc
+  name: abc-svc
   labels:
-    app: cbz-app
+    app: 123-app
 spec:
   ports:
     - port: 80
@@ -34,6 +38,6 @@ spec:
       protocol: TCP
   type: NodePort
   selector:
-    app: cbz-app
+    app: 123-app
 
 

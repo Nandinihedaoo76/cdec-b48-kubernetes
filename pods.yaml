@@ -1,34 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata: 
-  name: cbz-pod
+  name: my-pod
   labels:
-    app: cbz-app
-    env: dev
-  namespace: prod
+    app: my-app
 spec:
   containers:
-    - name: cbz-container
-      image: nginx
+    - name: my-c
+      image: httpd
       ports:
         - containerPort: 80
 
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: cbz-svc
-  labels:
-    app: cbz-app
-    env: dev
-  namespace: prod
-spec:
-  ports:
-    - port: 80
-      targetPort: 80
-      protocol: TCP
-      name: nginx
-  
-  type: NodePort
-  selector:
-    app: cbz-app
+
+
