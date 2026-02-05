@@ -19,7 +19,7 @@ spec:
     # matchLabels:
     #   app: rs-app
     matchExpressions:
-      - {key: app, operator: In, values: [cbz-app, ds-app]}
+      - {key: app, operator: In, values: [cbz-app, d`s-app]}
 ---
 
 apiVersion: v1

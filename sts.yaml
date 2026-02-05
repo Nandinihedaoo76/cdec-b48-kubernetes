@@ -18,7 +18,18 @@ spec:
             - containerPort: 3306
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: Redhat
+            #  value: Redhat
+              valueFrom:
+                configMapKeyRef:
+                  name: my-cm
+                  key: mysql_pass
+
+            - name: MYSQL_USER
+            #  value: Redhat
+              valueFrom:
+                configMapKeyRef:
+                  name: my-cm
+                  key: mysql_user
   selector:
     matchLabels:
       app: sts-app
