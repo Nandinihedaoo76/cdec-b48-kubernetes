@@ -16,10 +16,10 @@ spec:
           ports:
             - containerPort: 80
   selector:
-    # matchLabels:
-    #   app: rs-app
+    matchLabels:
+      app: ds-app
     matchExpressions:
-      - {key: app, operator: In, values: [cbz-app, d`s-app]}
+      - {key: app, operator: In, values: [cbz-app, ds-app]}
 ---
 
 apiVersion: v1

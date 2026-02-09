@@ -15,7 +15,7 @@ spec:
           valueFrom:
           #  configMapKeyRef:
           #    name: my-cm
-          #    key: mysql_pass
+          #    key: mysql_pass 
             secretKeyRef:
               name: my-sec
 
