@@ -17,23 +17,23 @@ spec:
             name: myapp
             port: 
               number: 80
-  - host: mobile.af049ffa178f7428aa19c4548441ee9f-1118725864.ap-southeast-1.elb.amazonaws.com
-    http:
-      paths:
+  # - host: mobile.af049ffa178f7428aa19c4548441ee9f-1118725864.ap-southeast-1.elb.amazonaws.com
+  #   http:
+  #     paths:
+  #     - pathType: Prefix
+  #       path: "/"
+  #       backend:
+  #         service:
+  #           name: cbzapp
+  #           port: 
+  #             number: 80
       - pathType: Prefix
-        path: "/"
+        path: "/mobile"
         backend:
           service:
             name: cbzapp
             port: 
               number: 80
-      # - pathType: Prefix
-      #   path: "/mobile"
-      #   backend:
-      #     service:
-      #       name: cbzapp
-      #       port: 
-      #         number: 80
       # - pathType: Prefix
       #   path: "/laptop"
       #   backend:
