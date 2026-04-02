@@ -6,6 +6,11 @@ metadata:
     app: deploy-app
 spec:
   replicas: 3 
+  selector:
+    matchLabels:  
+      app: deploy-app
+    matchExpressions:
+      - {key: app, operator: In, values: [cbz-app, deploy-app]}
   template:
     metadata: 
       labels:
