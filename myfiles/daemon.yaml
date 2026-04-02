@@ -1,20 +1,19 @@
 apiVersion: apps/v1
-kind: Deployment  
+kind: DaemonSet
 metadata:
-  name: my-deploy
+  name: my-daemon
   labels:
-    app: deploy-app
+    app: daemon-app
 spec:
-  replicas: 3 
   selector:
     matchLabels:  
-      app: deploy-app
+      app: daemon-app
     matchExpressions:
-      - {key: app, operator: In, values: [cbz-app, deploy-app]}
+      - {key: app, operator: In, values: [cbz-app, daemon-app]}
   template:
     metadata: 
       labels:
-        app: deploy-app
+        app: daemon-app
     spec:
       containers:
         - name: my-c
